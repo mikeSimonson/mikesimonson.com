@@ -1,3 +1,16 @@
 sculpin_content_types:
     posts:
         permalink: blog/:year/:month/:day/:filename/
+        path: _posts/
+        type: path
+        taxonomies:
+            - tags
+            - categories
+
+sculpin_twig:
+    view_paths:
+        ['_views', 'js', 'css' ]
+    extensions:
+        ['', 'twig', 'html', 'html.twig', 'twig.html', 'js', 'css']
+sculpin:
+    ignore: ["**/*~"]
