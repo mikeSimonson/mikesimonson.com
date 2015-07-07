@@ -80,7 +80,7 @@
 				{
 					width: 100%;
 					position: absolute;
-					bottom: 0;
+					top: 2em;
 					left: 0;
 					border-top: solid 1px #ddd;
 					padding-top: 0.5em;
@@ -203,3 +203,8 @@
 			height: 0.5em;
 			margin: 0 0 2em 0;
 		}
+
+/* personal-edit */
+.info-icons {
+    font-size: 1.5em;
+}

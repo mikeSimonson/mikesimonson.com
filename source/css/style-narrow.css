@@ -109,3 +109,8 @@
 		{
 			margin-right: 14em; /* = sidebar width */
 		}
+
+/* personal-edit */
+.info-icons {
+    font-size: 1.5em;
+}

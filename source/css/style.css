@@ -934,3 +934,7 @@ permalink: none
 		background: #364050 url('{{ site.url }}/css/images/bg01.png');
 	}
 
+/* personal edit */
+.text-align {
+    vertical-align: text-bottom;
+}
