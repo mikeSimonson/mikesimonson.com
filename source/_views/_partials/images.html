@@ -1,0 +1,21 @@
+{% set class = '' %}
+{% for key, row in page.img %}
+{% if key == 'class' %}
+{% set class = row %}
+{% else %}
+<div class="row" style="margin-bottom: 2em;">
+    {% for img in row %}
+    <div class="col-md-{{ 12 / row |length }} text-center">
+        <figure class="img-thumbnail" itemscope="itemscope" itemtype="http://schema.org/Photograph" >
+            <img src="{{ img.url }}"
+                 class="thumbs {% if img.class is not defined or img.class is empty %}{{ class }}{% else %}{{img.class}}{% endif %}"
+                 alt="{% if img.alt is defined  %}{{ img.alt }}{% endif %}"
+                 itemprop="image"
+                    />
+            <figcaption itemprop="name" class="caption">{% if img.alt is defined  %}{{ img.alt }}{% endif %}</figcaption>
+        </figure>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endfor %}

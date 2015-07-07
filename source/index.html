@@ -3,31 +3,35 @@ layout: default
 title: Home
 generator: pagination
 pagination:
-    max_per_page: 3
+    max_per_page: 1
 use:
     - posts
 ---
-{% for post in page.pagination.items %}
-    <article>
-        <header>
-            <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-        </header>
-        <div>
-            {{ post.blocks.content|raw }}
+{% block content %}
+
+    {% for post in page.pagination.items %}
+        {% include '_partials/post.html' with {'page': post, 'homepage': true} %}
+    {% endfor %}
+
+    {% if page.pagination.previous_page or page.pagination.next_page %}
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="{{ site.url }}{{ page.pagination.previous_page.url }}" class="button previous">Previous Page</a>
+            <a href="{{ site.url }}{{ page.pagination.next_page.url }}" class="button next">Next Page</a>
         </div>
-        {% if post.meta.tags %}
-            <p class="tags">
-            Tags:
-            {% for tag in post.meta.tags %}
-            <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-            </p>
+    {% endif %}
+
+{% if page.previous_post or page.next_post %}
+<!--<nav class="article">
+    <ul>
+        {% if page.next_post %}
+        <li>Next: <a class="next" href="{{ site.url }}{{ page.next_post.url }}" title="{{ page.next_post.title }}"><span class="title">{{ page.next_post.title }}</span></a></li>
         {% endif %}
-    </article>
-{% endfor %}
-{% if page.pagination.previous_page or page.pagination.next_page %}
-    <nav>
-        {% if page.pagination.previous_page %}<a href="{{ site.url }}{{ page.pagination.previous_page.url }}">Newer Posts</a>{% endif %}<br />
-        {% if page.pagination.next_page %}<a href="{{ site.url }}{{ page.pagination.next_page.url }}">Older Posts</a>{% endif %}<br />
-    </nav>
+        {% if page.previous_post %}
+        <li>Previous: <a class="previous" href="{{ site.url }}{{ page.previous_post.url }}" title="{{ page.previous_post.title }}"><span class="title">{{ page.previous_post.title }}</span></a></li>
+        {% endif %}
+    </ul>
+</nav>-->
 {% endif %}
+
+{% endblock %}

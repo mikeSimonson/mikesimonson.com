@@ -1,0 +1,8 @@
+{% if page.categories %}
+<p class="categories">
+    Categories:
+    {% for category in page.categories %}
+    <a href="{{ site.url }}/blog/categories/{{ category|url_encode(true) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+</p>
+{% endif %}
