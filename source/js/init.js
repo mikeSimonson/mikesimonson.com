@@ -1,3 +1,6 @@
+---
+permalink: none
+---
 /*
 	Striped by HTML5 UP
 	html5up.net | @n33co
@@ -9,12 +12,12 @@
 	skel.init({
 		reset: 'full',
 		breakpoints: {
-			global:		{ range: '*', href: 'css/style.css', containers: '100%', grid: { gutters: 50 }, viewport: { scalable: false } },
-			desktop:	{ range: '737-', href: 'css/style-desktop.css' },
-			wide:		{ range: '1201-', href: 'css/style-wide.css' },
-			narrow:		{ range: '737-1200', href: 'css/style-narrow.css' },
-			narrower:	{ range: '737-1000', href: 'css/style-narrower.css' },
-			mobile:		{ range: '-736', href: 'css/style-mobile.css', containers: '100%!', grid: { collapse: true } }
+			global:		{ range: '*', href: '{{ site.url }}/css/style.css', containers: '100%', grid: { gutters: 50 }, viewport: { scalable: false } },
+			desktop:	{ range: '737-', href: '{{ site.url }}/css/style-desktop.css' },
+			wide:		{ range: '1201-', href: '{{ site.url }}/css/style-wide.css' },
+			narrow:		{ range: '737-1200', href: '{{ site.url }}/css/style-narrow.css' },
+			narrower:	{ range: '737-1000', href: '{{ site.url }}/css/style-narrower.css' },
+			mobile:		{ range: '-736', href: '{{ site.url }}/css/style-mobile.css', containers: '100%!', grid: { collapse: true } }
 		},
 		plugins: {
 			layers: {
