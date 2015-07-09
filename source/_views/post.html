@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block content_wrapper %}
-    {% include '_partials/post.html' %}
+    {% set pagecontent = page.blocks %}
+    {% if pagecontent is empty %} {% set pagecontent = [] %} {% endif %}
+    {% set pagecontent = pagecontent|merge(page) %}
+    {% include '_partials/post.html' with { 'page': pagecontent } %}
 {% endblock %}
