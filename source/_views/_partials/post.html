@@ -1,30 +1,30 @@
 {% block content_wrapper %}
-    <!-- Post -->
-    <article class="box post post-excerpt">
-        <header>
-            <!--
-                        Note: Titles and subtitles will wrap automatically when necessary, so don't worry
-                        if they get too long. You can also remove the <p> entirely if you don't
-                        need a subtitle.
-                    -->
-            <h2><a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h2>
-            {% if page.subtitle %}
-            <p>{{ page.subtitle }}</p>
-            {% endif %}
-        </header>
-        {% include '_partials/infos.html' %}
-
-        {% include '_partials/categories.html' %}
-
-        {% include '_partials/tags.html' %}
-
-        {% if page.image.featured is defined %}
-        <a href="#" class="image featured"><img src="{{ site.url }}/images/{{ page.image.featured }}" alt="" /></a>
+<!-- Post -->
+<article class="box post post-excerpt">
+    <header>
+        <!--
+                    Note: Titles and subtitles will wrap automatically when necessary, so don't worry
+                    if they get too long. You can also remove the <p> entirely if you don't
+                    need a subtitle.
+                -->
+        <h2><a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h2>
+        {% if page.subtitle %}
+        <p>{{ page.subtitle }}</p>
         {% endif %}
+    </header>
+    {% include '_partials/infos.html' %}
 
-        {{ page.content|raw }}
+    {% include '_partials/categories.html' %}
 
-        {% include '_partials/images.html' %}
+    {% include '_partials/tags.html' %}
+
+    {% if page.image.featured is defined %}
+    <a href="#" class="image featured {{ page.image.class }}"><img src="{{ site.url }}/images/{{ page.image.featured }}" alt="{{ page.image.alt }}" /></a>
+    {% endif %}
+
+    {{ page.content|raw }}
+
+    {% include '_partials/images.html' %}
 
         {% if (page.previous_post or page.next_post) and homepage is not defined %}
             <nav class="article">
