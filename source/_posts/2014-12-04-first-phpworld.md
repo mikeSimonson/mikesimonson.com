@@ -5,7 +5,6 @@ icons:
     - chat
 image:
     featured: 'phpworld2014/entrance.jpg'
-draft: false
 tags:
     - conferences
     - phpworld
