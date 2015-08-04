@@ -79,11 +79,11 @@
 				.box.post .info
 				{
 					width: 100%;
-					position: absolute;
-					top: 2em;
+					position: relative;
+					top: -2em;
 					left: 0;
 					border-top: solid 1px #ddd;
-					padding-top: 0.5em;
+					padding-top: 1.5em;
 				}
 
 					.box.post .info .date
